@@ -1,0 +1,242 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+hgroup h2{
+    visibility: hidden;
+}
+.experience-institution{
+    visibility: hidden;
+}
+#contact h3{
+    visibility: hidden;
+  }
+.contact-value {
+    visibility: hidden;
+    }
+#about h3{
+ visibility: hidden;
+}
+.contact-type{ 
+  visibility: hidden;
+}
+
+#\#wrapper{
+    width: 85%;
+    align-items: center;
+    margin:auto;
+    height: 1000px;
+    font-style:normal;
+    font-size: 15px;
+}
+
+header{
+    height: 60px;
+    border-bottom: 2px solid rgb(156, 151, 151);
+}
+figure{
+    padding-left: 880px;
+    position: absolute; 
+    top:0;
+}
+
+
+#about p{
+    width: 75%;
+    font-style: italic;
+    color:grey;    
+    font-size: 15px;
+}
+figure img{
+    transform: rotate(-20deg);
+    padding-right: 120px;
+    float: right;
+}
+#competencies h3 {
+    height:110px;
+    width: 200px;
+    border-right: 2px solid #000;
+    float: left;
+}
+  #competencies {
+    padding-top: 20px;
+  }
+  .skill{
+      position: relative;
+      display: inline-block;
+      padding-left: 150px;
+      width: 150px;
+      left:15px;
+    }
+  [data-skill="5"]::after {
+    content: '\22C6\22C6';
+    grid-area:'1';
+    background-color: darkcyan;
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="3"]{
+    background-color: darkcyan;
+    grid-area:'2';
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="1"]{
+    background-color: darkcyan;
+    grid-area:'3';
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="9"]{
+    background-color: darkcyan;
+    grid-area:'4';
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="5"]{
+    grid-area:'5';
+    background-color: darkcyan;
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="7"]{
+    grid-area: 6;
+    background-color: darkcyan;
+    padding:10px;
+    margin:5px;  
+}
+#experiences{
+    padding-top: 20px; 
+}
+#experiences h3{
+    height: 300px;
+    width: 200px;
+    float: left;
+    border-right: 2px solid black;
+}
+
+
+.experience{
+    padding-left: 200px;
+}
+.experience-type{
+    color: darkcyan;
+}
+.experience h4{
+    float: left;
+}
+.experience-details{
+    padding-left: 700px;
+    padding-bottom: 30px;
+    color: gray;
+}
+.experience-description{
+    padding-bottom: 20px;
+    font-size: 17px;    
+}
+
+
+#education{
+    padding-top: 20px;
+}
+#education h3{
+    height: 300px;
+    width: 200px;
+    float: left;
+    border-right: 2px solid black;
+
+}
+#hobbies {
+    padding-top: 20px;
+}
+#hobbies h3{
+    height: 55px;
+    width: 200px;
+    float: left;
+    border-right: 2px solid black;
+}
+ul{
+    padding-left: 250px;
+
+}
+h3{
+    font-style: italic;
+}
+  .contact-email {
+      top:1000px;
+      position: absolute;
+      background-image:url(email.png);
+      width: 50px;
+    height: 50px;
+    left: 25%;
+    position: absolute;
+    background-size: cover;
+  }
+  .contact-phone {
+    top:1000px;
+    background-image: url(phone.png);
+    width: 50px;
+    height: 50px;
+    left: 35%;
+    position: absolute;
+   background-size: cover;
+ }
+  .contact-github {
+    top:1000px;
+    background-image: url(github.png);
+    width: 50px;
+    height: 50px;
+    left: 45%;
+    position: absolute;
+    background-size: cover;
+ }
+  .contact-facebook {
+    top:1000px;
+    background-image: url(facebook.png);
+    width: 50px;
+    height: 50px;
+    left: 55%;
+    position: absolute;
+    background-size: cover;
+  }
+
+
+
+  @media (max-width:700px){
+     #hobbies,figure, #contact{
+        visibility: hidden;
+    }
+    #about p{
+      width: 100%;
+  }
+  #competencies h3{
+      width: 100%;
+      height: 40px;
+      border-bottom: 2px solid black;
+  }
+  #experiences h3{
+    width:100%;
+    border-bottom: 2px solid black;
+  }
+  .skill{
+      margin:5px;
+     float: left;
+  }
+  #experiences h3{
+      width: 100%;
+      height: 40px;;
+  }
+  .experience{
+      float: left;
+      padding-left: 0;
+      padding-top: 10px;
+  }
+  .experience-details{
+      padding-left: 250px;
+  }
+  #education h3{
+      width: 100%;
+      height: 30px;
+  }
+ 
+}
