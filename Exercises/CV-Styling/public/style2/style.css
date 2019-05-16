@@ -69,37 +69,31 @@ figure img{
     }
   [data-skill="5"]::after {
     content: '\22C6\22C6';
-    grid-area:'1';
     background-color: darkcyan;
     padding:10px;
     margin:5px;  
 }
 [data-skill="3"]{
     background-color: darkcyan;
-    grid-area:'2';
     padding:10px;
     margin:5px;  
 }
 [data-skill="1"]{
     background-color: darkcyan;
-    grid-area:'3';
     padding:10px;
     margin:5px;  
 }
 [data-skill="9"]{
     background-color: darkcyan;
-    grid-area:'4';
     padding:10px;
     margin:5px;  
 }
 [data-skill="5"]{
-    grid-area:'5';
     background-color: darkcyan;
     padding:10px;
     margin:5px;  
 }
 [data-skill="7"]{
-    grid-area: 6;
     background-color: darkcyan;
     padding:10px;
     margin:5px;  
@@ -164,7 +158,7 @@ h3{
   .contact-email {
       top:1000px;
       position: absolute;
-      background-image:url(email.png);
+      background-image:url("../images/email.png");
       width: 50px;
     height: 50px;
     left: 25%;
@@ -173,7 +167,7 @@ h3{
   }
   .contact-phone {
     top:1000px;
-    background-image: url(phone.png);
+    background-image: url("../images/phone.png");
     width: 50px;
     height: 50px;
     left: 35%;
@@ -182,7 +176,7 @@ h3{
  }
   .contact-github {
     top:1000px;
-    background-image: url(github.png);
+    background-image: url("../images/github.png");
     width: 50px;
     height: 50px;
     left: 45%;
@@ -191,7 +185,7 @@ h3{
  }
   .contact-facebook {
     top:1000px;
-    background-image: url(facebook.png);
+    background-image: url("../images/facebook.png");
     width: 50px;
     height: 50px;
     left: 55%;
