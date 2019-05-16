@@ -1,0 +1,303 @@
+*{
+    margin:0;
+    padding:0;
+}
+#\#wrapper{
+    position: relative;
+    
+}
+
+header{
+    height: 150px;
+    background: grey;
+}
+figure{
+    padding-top: 12px;
+    padding-left: 350px;
+    position:absolute;
+}
+hgroup{
+    padding-top: 20px;
+    padding-left: 100px;
+    position:absolute;
+    color:red;
+}
+
+#contact{ 
+    position: absolute; 
+    margin-bottom: 600px;
+    right: 0; top: 0; } 
+.contact{ 
+    display: grid; 
+    grid-template-columns: 40% 60%;
+    width: 600px; 
+    height: 21px; 
+    margin-left:0;
+    background-color: black;
+     color: white;
+    
+     }
+.contact-type{
+       background-color: red; } 
+.contact-value{
+     padding-left: 2px; 
+     background-color:black; color: red; } 
+.contact-value a{ 
+    color: red; 
+}
+
+h4{
+    color:red;  
+}
+.content{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows:br br br;
+    grid-template-areas:
+    "about compet"
+     "exp edu"
+     "hob hob";
+    padding: 20px;
+    width:80%;
+    margin: auto;
+}
+#about{
+  grid-area: about;
+  padding-top: 15px;
+}
+#competencies{
+  grid-area: compet;
+  padding-top:15px;
+}
+[data-skill="5"]{
+    border-right:250px solid grey;
+    background: red;
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="3"]{
+    border-right:400px solid grey;
+    background: red;
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="1"]{
+    border-right:460px solid grey;
+    background: red;
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="9"]{
+    border-right:90px solid grey;
+    background: red;
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="5"]{
+    border-right:250px solid grey;
+    background: red;
+    padding:10px;
+    margin:5px;  
+}
+[data-skill="7"]{
+    border-right:150px solid grey;
+    background: red;
+    padding:10px;
+    margin:5px;  
+}
+
+
+#experiences{
+  grid-area: exp;
+  padding-top:15px;
+}
+#education{
+  grid-area: edu;
+  padding-top:15px;
+}
+#hobbies{
+  grid-area: hob;
+  padding-left:12px;
+  width: 50%;
+}
+ul{
+    padding-left:25px;
+}
+h3{
+    border-bottom: 2px solid grey;
+
+}
+h3::before{
+    content:'\25cf';
+    color:red;
+    font-size:25px;
+}
+p{
+    padding: 12px;
+}
+.experience-details{
+    font-weight:100PX;
+    color:grey;
+    padding-left: 15px;
+}
+.experience-date-separator{
+    color:red;
+}
+.experience-location::before{
+    content: 'In';
+}
+.experience-location{
+    font-size: 10px;
+}
+.experience-date{
+    font-size: 10px;
+}
+/*#contact h3{
+    visibility: hidden;
+}*/
+#contact h3::before{
+    content: none;
+}
+@media(max-width:600px){
+    *{
+        margin:0;
+        padding:0;
+    }
+    #\#wrapper{
+        position: relative;
+        
+    }
+    
+    header{
+        height: 250px;
+        background: grey;
+    }
+    figure{
+        padding-top: 120px;
+        padding-left: 130px;
+        position:absolute;
+    }
+    hgroup{
+        padding-top: 10px;
+        padding-left: 100px;
+        position:absolute;
+        color:red;
+    }
+    
+    #contact{ 
+        visibility: hidden;
+    }
+    .content{
+        display:grid;
+        grid-template-columns:100% ;
+        grid-template-rows:br br br br br;
+        grid-template-areas:
+         "about"
+         "compet"
+         "exp"
+         "edu"
+         "hob"
+         "hob";
+        padding: 20px;
+        width:80%;
+        margin: auto;
+    }
+    #about{
+      grid-area: about;
+      padding-top: 15px;
+    }
+    #competencies{
+      grid-area: compet;
+      padding-top:15px;
+    }
+    [data-skill="5"]{
+        border-right:250px solid grey;
+        background: red;
+        padding:10px;
+        margin:5px;  
+    }
+    [data-skill="3"]{
+        border-right:400px solid grey;
+        background: red;
+        padding:10px;
+        margin:5px;  
+    }
+    [data-skill="1"]{
+        border-right:460px solid grey;
+        background: red;
+        padding:10px;
+        margin:5px;  
+    }
+    [data-skill="9"]{
+        border-right:90px solid grey;
+        background: red;
+        padding:10px;
+        margin:5px;  
+    }
+    [data-skill="5"]{
+        border-right:250px solid grey;
+        background: red;
+        padding:10px;
+        margin:5px;  
+    }
+    [data-skill="7"]{
+        border-right:150px solid grey;
+        background: red;
+        padding:10px;
+        margin:5px;  
+    }
+    
+    
+    #experiences{
+      grid-area: exp;
+      padding-top:15px;
+    }
+    #education{
+      grid-area: edu;
+      padding-top:15px;
+    }
+    #hobbies{
+      grid-area: hob;
+      padding-left:12px;
+      width: 50%;
+    }
+    ul{
+        padding-left:25px;
+    }
+    h3{
+        border-bottom: 2px solid grey;
+    
+    }
+    h3::before{
+        content:'\25cf';
+        color:red;
+        font-size:25px;
+    }
+    p{
+        padding: 12px;
+    }
+    .experience-details{
+        font-weight:100PX;
+        color:grey;
+        padding-left: 15px;
+    }
+    .experience-date-separator{
+        color:red;
+    }
+    .experience-location::before{
+        content: 'In';
+    }
+    .experience-location{
+        font-size: 10px;
+    }
+    .experience-date{
+        font-size: 10px;
+    }
+    /*#contact h3{
+        visibility: hidden;
+    }*/
+    #contact h3::before{
+        content: none;
+    }
+   
+}
