@@ -12,7 +12,7 @@ describe('Character Strings: ', () => {
   describe('replaceCharacterE', () => {
     it('Replaces The E Character with a space', () => {
       const result = replaceCharacterE('This text has a certain number of characters')
-      expect(result).toEqual('This t xt has a certain number of characters')
+      expect(result).toBe('This t xt has a certain number of characters')
     })
   })
 
