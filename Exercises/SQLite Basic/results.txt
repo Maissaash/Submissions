@@ -116,3 +116,29 @@ WHERE ROLE='Graphic Designer';
 Snapchat
 
 
+
+
+14.select name ,max(points) from students;
+    "Robert"	"500"
+
+15.select avg(points) from students;
+    325.0
+
+16.select count(name) from students where points=500;
+    2
+
+17.select name from students Where name like '%S%';
+
+    "Basma"
+    "Hasan"
+    "Maissaa"
+
+18.SELECT NAME,POINTS FROM STUDENTS
+ORDER BY POINTS DESC; 
+
+    "Robert"	"500"
+    "Jana"  	"500"
+    "Basma"	    "400"
+    "Maissaa"	"250"
+    "Alex"	    "150"
+    "Hasan" 	"150"
