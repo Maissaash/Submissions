@@ -89,3 +89,30 @@ Query executed successfully: DELETE FROM Students WHERE NAME = 'Layal'; (took 0m
 	"5"	"Robert"	"34"	"M"	"500"
 	"6"	"Jana"  	"33"	"F"	"500"
 	"8"	"Maissaa"	"17"	"F"	"250"
+
+
+
+11.SELECT employees.Name, employees.company, companies.date
+FROM employees
+INNER JOIN companies ON employees.COMPANY=companies.NAME;
+
+"Marc"	"Google"	"1998"
+"Maria"	"Google"	"1998"
+"Alaa"	"Facebook"	"2004"
+"Hala"	"Snapchat"	"2011"
+
+12.SELECT employees.Name, employees.company, companies.date
+FROM employees
+INNER JOIN companies ON employees.COMPANY=companies.NAME
+WHERE COMPANIES.Date<2000;
+
+"Marc"	"Google"	"1998"
+"Maria"	"Google"	"1998"
+
+13.SELECT company
+FROM employees
+WHERE ROLE='Graphic Designer';
+
+Snapchat
+
+
