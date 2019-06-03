@@ -52,4 +52,40 @@ Query executed successfully: UPDATE Students SET points=150  WHERE Name='Alex' (
 
 
 
+1. Create table Graduates2:
+CREATE TABLE graduates2 (
+	ID	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	Name	TEXT NOT NULL UNIQUE,
+	Age	INTEGER,
+	Gender	TEXT,
+	Points integer,
+	Graduation	date
+);
+Query executed successfully: CREATE TABLE graduates2 (
+	ID	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	Name	TEXT NOT NULL UNIQUE,
+	Age	INTEGER,
+	Gender	TEXT,
+	Points integer,
+	Graduation	date
+); (took 1ms)
 
+
+2. INSERT INTO graduates (Name,Age,Gender,Points) SELECT Name,Age,Gender,Points FROM students WHERE Name = 'Layal';
+Query executed successfully:
+ INSERT INTO graduates (Name,Age,Gender,Points) SELECT Name,Age,Gender,Points FROM students WHERE Name = 'Layal'; (took 0ms, 1 rows affected)
+
+3.UPDATE graduates SET Graduation = '08/09/2018' WHERE Name = 'Layal';
+Query executed successfully:
+ UPDATE graduates SET Graduation = '08/09/2018' WHERE Name = 'Layal'; (took 0ms, 1 rows affected)
+	"5"	"Layal"	"18"	"F"	"350"	"08/09/2018"
+
+4.DELETE FROM Students WHERE NAME = 'Layal';
+Query executed successfully: DELETE FROM Students WHERE NAME = 'Layal'; (took 0ms, 1 rows affected)
+
+	"1"	"Alex"  	"21"	"M"	"150"
+	"2"	"Basma" 	"25"	"F"	"400"
+	"3"	"Hasan" 	"30"	"M"	"150"
+	"5"	"Robert"	"34"	"M"	"500"
+	"6"	"Jana"  	"33"	"F"	"500"
+	"8"	"Maissaa"	"17"	"F"	"250"
