@@ -41,7 +41,7 @@ function onDataReceived(text) {
     hello();
   }
   else if(text==='help\n'){
-    console.log('quit ,hello ,unknowncommand');
+    console.log('quit \n' + 'hello \n' + 'unknowncommand');
   }
   else {
     unknownCommand(text);
