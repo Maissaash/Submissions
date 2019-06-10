@@ -103,7 +103,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 function help(){
-  console.log('quit or exit \n' + 'hello'+ " " +'or  hello+word \n'+ 'unknowncommand \n' + 'Help \n');
+  console.log('quit or exit \n' + 'hello'+ " " +'or  hello+word \n'+ 'unknowncommand \n'  + 'list \n' + 'add \n' + 'remove \n' + 'Help \n');
 }
 
 /**
@@ -139,6 +139,7 @@ function add(text){
        }
     }
 }
+
 /* Remove a task */
 function remove(text){
     if(text==='remove\n'){
