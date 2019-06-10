@@ -12,24 +12,24 @@
 
 
 /* define the path if it exist or not */
-/*var path;
-    if(process.argv[2]!=""){
+var path;
+    if(process.argv[2]){
          path = process.argv[2];
     }
     else{
          path = 'database.json';
     }
-*/
+
 var fs=require('fs');
 // task = JSON.parse(loading('database.json'));
   
 
 
 function startApp(name){
-    if(!fs.existsSync('database.json')){
-        storeData(task,'database.json');
+    if(!fs.existsSync(path)){
+        storeData(task,path);
         }
-   task= JSON.parse(loading('database.json'));
+   task= JSON.parse(loading(path));
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
@@ -180,7 +180,7 @@ function help(){
  * @returns {void}
  */
 function quit(){
-  storeData(task, 'database.json') ;
+  storeData(task, path) ;
   console.log('Quitting now, goodbye!')
   process.exit();
 }
