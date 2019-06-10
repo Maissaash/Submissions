@@ -81,6 +81,10 @@ function onDataReceived(text) {
     else if(text==='edit\n' || textsplit[0] === 'edit'){
         edit(text);
        }
+/* check */
+   else if(text === 'check\n'  || textsplit[0] === 'check'){
+        check(text);
+   }
 
   else {
     unknownCommand(text);
@@ -196,8 +200,19 @@ function edit(text){
     }
     for(var i = 0; i < task.length; i++){
              console.log((i+1)+'-'+task[i]);
-       }
     }
+}
+/* check [done] */
+function check(text){
+    if(text === 'check\n'){
+       console.log("error");
+    }
+    else if(task[textsplit[1]-1].done=='no'){
+           task[textsplit[1]-1].done='yes'
+     }
+   list();
+   }
+ 
 
 // The following line starts the application
 startApp("Maissaa")
