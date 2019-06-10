@@ -34,7 +34,16 @@ function startApp(name){
  * @returns {void}
  */
 
-var task=['Mango.','Banana.' ,'Pineapple.' ,'Strawberry.'];
+var task=[
+    {     task:'Mango.',
+          done:'no'},
+    {     task:'Banana.',
+          done:'no' },
+    {     task:'Pineapple.',
+          done:'yes'}, 
+    {     task:'Strawberry.',
+          done:'no'}
+        ];
 
 function onDataReceived(text) {
   textsplit=text.trim().split(" ");
@@ -128,7 +137,12 @@ function quit(){
  */
 function list(){
     for (var i=0 ;i<task.length;i++){
-      console.log((i+1)+'-'+task[i]);
+        if(task[i].done=='yes'){
+           console.log((i+1)+'-'+" [✓] " +task[i].task);
+        }
+        else{
+            console.log((i+1)+'-'+" "+ "[ ]" +task[i].task);
+        }
     }
 }
 
