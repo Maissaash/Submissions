@@ -70,18 +70,18 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(text){
-  var tex=text.trim();
-  console.log(tex+'!');
-}
-
+ function hello(text){
+    var tex=text.trim();
+    console.log(tex+'!');
+  }
 
 /**
+ * HELP
  *
  * @returns {void}
  */
 function help(){
-  console.log('\n'+'quit or exit \n' + 'hello'+ " " +'or  hello+word \n'+ + 'unknowncommand');
+  console.log('quit \n' + 'hello \n' + 'hello with any word  \n'+'unknowncommand');
 }
 
 /**
