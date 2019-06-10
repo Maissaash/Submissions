@@ -33,23 +33,30 @@ function startApp(name){
  * @param  {string} text data typed by the user
  * @returns {void}
  */
+
+var tasks=['Mango.','Banana.' ,'Pineapple.' ,'Strawberry.'];
+
 function onDataReceived(text) {
-  
   textsplit=text.split(" ");
-  
   if (text === 'quit\n' || text ==='exit\n') {
     quit();
-  }
-
+    }
   else if(text==='hello\n' || textsplit[0] === 'hello'){
      hello(text);
-}
+    }
   else if(text==='help\n'){
     help();
-  }
+    }
+    else if(text ==='list\n') {
+        list();
+    }
+
+
+
   else {
     unknownCommand(text);
-  }
+    }
+
 }
 
 
@@ -81,7 +88,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 function help(){
-  console.log('quit \n' + 'hello \n' + 'hello with any word  \n'+'unknowncommand');
+  console.log('quit or exit \n' + 'hello'+ " " +'or  hello+word \n'+ 'unknowncommand \n' + 'Help \n');
 }
 
 /**
@@ -93,6 +100,18 @@ function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
 }
+
+/**
+ * print all the list
+ *
+ * @returns {void}
+ */
+function list(){
+    for (var i=0 ;i<tasks.length;i++){
+      console.log((i+1)+'-'+tasks[i]);
+    }
+}
+
 
 // The following line starts the application
 startApp("Maissaa")
