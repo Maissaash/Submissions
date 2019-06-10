@@ -57,13 +57,16 @@ function onDataReceived(text) {
     else if(text ==='list\n') {
         list();
     }
+
 /* add */
     else if(textsplit[0]=== 'add'){
         add(text);
     }
 
-
-
+/* Remove */
+    else if(textsplit[0]=== 'remove'){
+        remove(text);
+    }
 
   else {
     unknownCommand(text);
@@ -124,6 +127,7 @@ function list(){
     }
 }
 
+/* add new task */
 function add(text){
     if(text==='add\n'){
         console.log("Error")
@@ -135,7 +139,22 @@ function add(text){
        }
     }
 }
-
-
+/* Remove a task */
+function remove(text){
+    if(text==='remove\n'){
+        task.pop()
+    }
+    else if(textsplit[1]=='1'){
+        task.splice(0,1)
+    }
+    else if(textsplit[1]=='2'){
+        task.splice(1,1)
+    }
+    
+    for(var i = 0; i < task.length; i++){
+             console.log((i+1)+'-'+task[i]);
+    }
+    
+}
 // The following line starts the application
 startApp("Maissaa")
