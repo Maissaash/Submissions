@@ -34,22 +34,34 @@ function startApp(name){
  * @returns {void}
  */
 
-var tasks=['Mango.','Banana.' ,'Pineapple.' ,'Strawberry.'];
+var task=['Mango.','Banana.' ,'Pineapple.' ,'Strawberry.'];
 
 function onDataReceived(text) {
-  textsplit=text.split(" ");
+  textsplit=text.trim().split(" ");
+  /* quit or exit */
   if (text === 'quit\n' || text ==='exit\n') {
     quit();
     }
+
+    /* hello  or hello with word */
   else if(text==='hello\n' || textsplit[0] === 'hello'){
      hello(text);
     }
+
+    /* help */
   else if(text==='help\n'){
     help();
     }
+
+/* list*/
     else if(text ==='list\n') {
         list();
     }
+/* add */
+    else if(textsplit[0]=== 'add'){
+        add(text);
+    }
+
 
 
 
@@ -107,8 +119,20 @@ function quit(){
  * @returns {void}
  */
 function list(){
-    for (var i=0 ;i<tasks.length;i++){
-      console.log((i+1)+'-'+tasks[i]);
+    for (var i=0 ;i<task.length;i++){
+      console.log((i+1)+'-'+task[i]);
+    }
+}
+
+function add(text){
+    if(text==='add\n'){
+        console.log("Error")
+    }
+    else {
+       task.push(textsplit[1])
+       for(var i = 0; i < task.length; i++){
+             console.log((i+1)+'-'+task[i]);
+       }
     }
 }
 
