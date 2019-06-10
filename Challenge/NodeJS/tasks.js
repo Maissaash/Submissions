@@ -141,10 +141,15 @@ function add(text){
 }
 
 /* Remove a task */
+/* number doesn't exist */
 function remove(text){
     if(text==='remove\n'){
         task.pop()
     }
+    else if(textsplit[1]<1 || textsplit[1]>task.length){
+        console.log('\n'+"number doesn't exist");  
+    }
+    
     else if(textsplit[1]=='1'){
         task.splice(0,1)
     }
