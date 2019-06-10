@@ -41,7 +41,7 @@ function onDataReceived(text) {
     quit();
   }
 
-  else if(textsplit[0] === 'hello\n'  || textsplit[0] === 'hello'){
+  else if(text==='hello\n' || textsplit[0] === 'hello'){
      hello(text);
 }
   else if(text==='help\n'){
@@ -68,19 +68,20 @@ function unknownCommand(c){
 /**
  * Says hello
  *
- * @returns {void}  
+ * @returns {void}
  */
- function hello(text){
-    var tex=text.trim();
-    console.log(tex.replace("\n","")+"!");
-  }
+function hello(text){
+  var tex=text.trim();
+  console.log(tex+'!');
+}
+
 
 /**
- * help
+ *
  * @returns {void}
  */
 function help(){
-  console.log('\n'+'quit \n' + 'hello \n' + 'unknowncommand');
+  console.log('\n'+'quit or exit \n' + 'hello'+ " " +'or  hello+word \n'+ + 'unknowncommand');
 }
 
 /**
