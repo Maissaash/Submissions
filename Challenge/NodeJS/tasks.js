@@ -86,7 +86,12 @@ function onDataReceived(text) {
         check(text);
    }
 
-  else {
+   /* uncheck */
+   else if(text === 'uncheck\n'  || textsplit[0] === 'uncheck'){
+    uncheck(text);
+}
+
+else {
     unknownCommand(text);
     }
 
@@ -213,6 +218,16 @@ function check(text){
    list();
    }
  
+/* uncheck [done] */
+function uncheck(text){
+    if(text === 'uncheck\n'){
+       console.log("error");
+    }
+    else if(task[textsplit[1]-1].done=='yes'){
+           task[textsplit[1]-1].done='no'
+     }
+   list();
+   }
 
 // The following line starts the application
 startApp("Maissaa")
