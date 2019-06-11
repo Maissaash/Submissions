@@ -34,7 +34,16 @@ function startApp(name){
  * @returns {void}
  */
 
-var task=['Mango.','Banana.' ,'Pineapple.' ,'Strawberry.'];
+var task=[
+    {     taskm:'Mango.',
+          done:'no'},
+    {     taskm:'Banana.',
+          done:'no' },
+    {     taskm:'Pineapple.',
+          done:'yes'}, 
+    {     taskm:'Strawberry.',
+          done:'no'}
+        ];
 
 function onDataReceived(text) {
   textsplit=text.trim().split(" ");
@@ -70,7 +79,7 @@ function onDataReceived(text) {
 
 /* Edit */
     else if(text==='edit\n' || textsplit[0] === 'edit'){
-        edit(text);
+        edit(text,textsplit);
        }
 
   else {
@@ -126,9 +135,14 @@ function quit(){
  *
  * @returns {void}
  */
-function list(text){
+function list(){
     for (var i=0 ;i<task.length;i++){
-      console.log((i+1)+'-'+task[i]);
+        if(task[i].done=='yes'){
+           console.log((i+1)+'-'+" [✓] " +task[i].taskm+"   "+task[i].done);
+        }
+        else{
+            console.log((i+1)+'-'+" "+ "[ ]" +task[i].taskm+"   "+task[i].done);
+        }
     }
 }
 
@@ -138,10 +152,9 @@ function add(text){
         console.log("Error")
     }
     else {
-       task.push(textsplit[1])
-       for(var i = 0; i < task.length; i++){
-             console.log((i+1)+'-'+task[i]);
-       }
+      task.push({taskm:textsplit[1] , done:textsplit[2]})
+      list(text);
+    
     }
 }
 
@@ -161,30 +174,31 @@ function remove(text){
     else if(textsplit[1]=='2'){
         task.splice(1,1)
     }
-    
-    for(var i = 0; i < task.length; i++){
-             console.log((i+1)+'-'+task[i]);
-    }
+    list(text);
     
 }
 
 /* edit */
-function edit(text){
+function edit(text,textsplit){
     if(text==='edit\n'){
         console.log("\n"+"Error")
     }
-    /* if edit 1 and new task */
-    else if(textsplit[0]==='edit' && textsplit[1]=="1" && textsplit.length>1)
-    {
-      task[0]=textsplit[2];
-      list(text);
+    else if(textsplit[0]==='edit' && isNaN(textsplit[1])){
+        //console.log(task)
+        console.log(textsplit)
+        task[task.length-1].taskm = textsplit[1]
+        task[task.length-1].done=textsplit[2]
+       
+        //list(text)
     }
-    /* if edit with new task */
-      else{
-      console.log(task.length);
-        task[(task.length)-1]=textsplit[1];
-        list(text);
+    else if(textsplit[0]==='edit' && textsplit[1]==='1'){
+      //console.log(textsplit[2]+textsplit[3] + textsplit.length);
+      task[0].taskm=textsplit[2];
+      task[0].done=textsplit[3];
+      list(text)
     }
-  }
+  
+}
+
 // The following line starts the application
 startApp("Maissaa")
