@@ -9,13 +9,44 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
+var fs=require('fs');
+  
+
+
 function startApp(name){
+    if(!fs.existsSync('database.json')){
+        storeData(task,'database.json');
+        }
+   task= JSON.parse(loading('database.json'));
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+
+  
+   
+   
 }
+ //  load data from  database.json
+ const loading = (path) => {
+    try {
+      return fs.readFileSync(path, 'utf8')
+    }
+     catch (err) {
+      console.error(err)
+      return false
+    }
+  }
+
+//  save data in database.json when i type exit or quit.
+const storeData = ( path) => {
+    try {
+      fs.writeFileSync(path, JSON.stringify(task))
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
 
 /**
@@ -133,6 +164,7 @@ function help(){
  * @returns {void}
  */
 function quit(){
+  storeData( 'database.json') ;
   console.log('Quitting now, goodbye!')
   process.exit();
 }
