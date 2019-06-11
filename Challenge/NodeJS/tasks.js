@@ -81,7 +81,14 @@ function onDataReceived(text) {
     else if(text==='edit\n' || textsplit[0] === 'edit'){
         edit(text,textsplit);
        }
-
+/* check */
+    else if(text === 'check\n'  || textsplit[0] === 'check'){
+      check(text,textsplit);
+}
+ /* uncheck */
+ else if(text === 'uncheck\n'  || textsplit[0] === 'uncheck'){
+    uncheck(text,textsplit);
+}
   else {
     unknownCommand(text);
     }
@@ -199,6 +206,30 @@ function edit(text,textsplit){
     }
   
 }
+/* check [done] */
+function check(text,textsplit){
+  if(text === 'check\n'){
+     console.log("error");
+  }
+  else if(textsplit[0]==='check' && !isNaN(textsplit[1])){
+     if(task[textsplit[1]-1].done=='no'){
+         task[textsplit[1]-1].done='yes'
+         list(text);
+   }}
+ 
+ }
+/* uncheck [done] */
+function uncheck(text,textsplit){
+    if(text === 'uncheck\n'){
+       console.log("error");
+    }
+    else if(textsplit[0]==='uncheck' && !isNaN(textsplit[1])){
+       if(task[textsplit[1]-1].done=='yes'){
+           task[textsplit[1]-1].done='no'
+           list(text);
+     }}
+   
+   }
 
 // The following line starts the application
 startApp("Maissaa")
