@@ -9,57 +9,13 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-
-
-/* define the path if it exist or not */
-var path;
-    if(process.argv[2]){
-         path = process.argv[2];
-    }
-    else{
-         path = 'database.json';
-    }
-
-var fs=require('fs');
-// task = JSON.parse(loading('database.json'));
-  
-
-
 function startApp(name){
-    if(!fs.existsSync(path)){
-        storeData(task,path);
-        }
-   task= JSON.parse(loading(path));
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
-
-  
-   
-   
 }
- //  load data from  database.json
- const loading = (path) => {
-    try {
-      return fs.readFileSync(path, 'utf8')
-    }
-     catch (err) {
-      console.error(err)
-      return false
-    }
-  }
-
-//  save data in database.json when i type exit or quit.
-const storeData = (data, path) => {
-    try {
-      fs.writeFileSync(path, JSON.stringify(data))
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
 
 
 /**
@@ -78,16 +34,7 @@ const storeData = (data, path) => {
  * @returns {void}
  */
 
-var task=[
-    {     task:'Mango.',
-          done:'no'},
-    {     task:'Banana.',
-          done:'no' },
-    {     task:'Pineapple.',
-          done:'yes'}, 
-    {     task:'Strawberry.',
-          done:'no'}
-        ];
+var task=['Mango.','Banana.' ,'Pineapple.' ,'Strawberry.'];
 
 function onDataReceived(text) {
   textsplit=text.trim().split(" ");
@@ -125,17 +72,8 @@ function onDataReceived(text) {
     else if(text==='edit\n' || textsplit[0] === 'edit'){
         edit(text);
        }
-/* check */
-   else if(text === 'check\n'  || textsplit[0] === 'check'){
-        check(text);
-   }
 
-   /* uncheck */
-   else if(text === 'uncheck\n'  || textsplit[0] === 'uncheck'){
-    uncheck(text);
-}
-
-else {
+  else {
     unknownCommand(text);
     }
 
@@ -170,8 +108,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 function help(){
-  console.log('quit or exit \n' + 'hello'+ " " +'or  hello+word \n'+ 'unknowncommand \n'  + 'list \n' + 'add \n' + 'remove \n' +'edit \n'+'check \n' +'unckeck \n'+ 'Help \n');
-
+  console.log('quit or exit \n' + 'hello'+ " " +'or  hello+word \n'+ 'unknowncommand \n'  + 'list \n' + 'add \n' + 'remove \n' + 'Help \n');
 }
 
 /**
@@ -180,23 +117,18 @@ function help(){
  * @returns {void}
  */
 function quit(){
-  storeData(task, path) ;
   console.log('Quitting now, goodbye!')
   process.exit();
 }
 
 /**
  * print all the list
+ *
  * @returns {void}
  */
-function list(){
+function list(text){
     for (var i=0 ;i<task.length;i++){
-        if(task[i].done=='yes'){
-           console.log((i+1)+'-'+" [✓] " +task[i].task);
-        }
-        else{
-            console.log((i+1)+'-'+" "+ "[ ]" +task[i].task);
-        }
+      console.log((i+1)+'-'+task[i]);
     }
 }
 
@@ -241,38 +173,18 @@ function edit(text){
     if(text==='edit\n'){
         console.log("\n"+"Error")
     }
-    else if(text==='edit new text\n'){
-        task[task.length-1]="new text";
-    }
-    else if(text==='edit 1 new text\n')
+    /* if edit 1 and new task */
+    else if(textsplit[0]==='edit' && textsplit[1]=="1" && textsplit.length>1)
     {
-      task[0]="new text";
+      task[0]=textsplit[2];
+      list(text);
     }
-    for(var i = 0; i < task.length; i++){
-             console.log((i+1)+'-'+task[i]);
+    /* if edit with new task */
+      else{
+      console.log(task.length);
+        task[(task.length)-1]=textsplit[1];
+        list(text);
     }
-}
-/* check [done] */
-function check(text){
-    if(text === 'check\n'){
-       console.log("error");
-    }
-    else if(task[textsplit[1]-1].done=='no'){
-           task[textsplit[1]-1].done='yes'
-     }
-   list();
-   }
- 
-/* uncheck [done] */
-function uncheck(text){
-    if(text === 'uncheck\n'){
-       console.log("error");
-    }
-    else if(task[textsplit[1]-1].done=='yes'){
-           task[textsplit[1]-1].done='no'
-     }
-   list();
-   }
-
+  }
 // The following line starts the application
 startApp("Maissaa")
