@@ -58,8 +58,16 @@ function Comparator(a, b) {
     if (a.title > b.title) {return 1};
     return 0;
   }
- 
- 
+/* read by ID */ 
+app.get('/movies/read/id/:ID',(req,res)=>{
+    var ss=req.params.ID
+    if(ss<=movies.length){
+           res.send({status:200,data:movies[ss-1]})
+    }
+    else{
+    res.send({status:404, error:true, message:'the movie <ID> does not exist'})
+    }
+})
 
 
 
