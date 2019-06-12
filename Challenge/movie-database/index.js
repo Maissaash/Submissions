@@ -30,12 +30,37 @@ var express = require('express')
         { title: 'Jaws', year: 1975, rating: 8 },
         { title: 'Avatar', year: 2009, rating: 7.8 },
         { title: 'Brazil', year: 1985, rating: 8 },
-        { title: 'Padington‎', year: 1992, rating: 6.2 }
+        { title: 'الارهاب و الكباب‎', year: 1992, rating: 6.2 }
     ]
-    /* list  */
 
+    /* list  */
     app.get('/movies/read', (req, res) => { 
-            res.send({status:200, data:movies })
+            res.send({status:200, data:movies})
         })
+
+    /* search by date */
+    app.get('/movies/read/by-date', (req, res) => { 
+        res.send({status:200, data:movies.sort(function(a, b)
+            {return a.year - b.year})  })
+    })
+ /* search by rating */
+ app.get('/movies/read/by-rating', (req, res) => { 
+    res.send({status:200, data:movies.sort(function(a, b)
+        {return a.rating - b.rating})  })
+})
+/* search by title */
+app.get('/movies/read/by-title', (req, res) => { 
+    res.send({status:200, data:movies.sort(Comparator)})
+})
+
+function Comparator(a, b) {
+    if (a.title < b.title){ return -1};
+    if (a.title > b.title) {return 1};
+    return 0;
+  }
+ 
+ 
+
+
 
 app.listen(3000, () => console.log('listinig on port 3000'));
