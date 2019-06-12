@@ -61,7 +61,7 @@ function Comparator(a, b) {
 /* read by ID */ 
 app.get('/movies/read/id/:ID',(req,res)=>{
     var ss=req.params.ID
-    if(ss<=movies.length){
+    if(ss<=movies.length && ss>=0){
            res.send({status:200,data:movies[ss-1]})
     }
     else{
