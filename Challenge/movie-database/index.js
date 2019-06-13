@@ -69,6 +69,20 @@ app.get('/movies/read/id/:ID',(req,res)=>{
     }
 })
 
+/* add new movie */    
+ app.get('/movies/add',(req,res) => {
+      var newtitle = req.query.title 
+      var newyear = req.query.year 
+      var newrating = req.query.rating
+      
+       if(newtitle == undefined || newyear == undefined || newyear.length > 4 || isNaN(newyear)) {
+            res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
+} 
+if (newrating == "") { newrating = 4 }
+ movies.push({title: newtitle, year: newyear, rating: newrating}) 
+ res.send({status:200, data:movies})
+})
+
 
 
 app.listen(3000, () => console.log('listinig on port 3000'));
