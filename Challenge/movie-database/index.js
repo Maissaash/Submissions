@@ -83,6 +83,18 @@ if (newrating == "") { newrating = 4 }
  res.send({status:200, data:movies})
 })
 
+/* delete movie */
+app.get('/movies/delete/:ID',(req,res) => {
+    var moviesdel = req.params.ID
+    if (moviesdel > 0 && moviesdel< movies.length ) {
+        movies.splice(moviesdel-1 , 1)
+        res.send({status:200, message: movies})
+    }
+    else {
+        res.send({status:404, error:true, message:'the movie <ID> does not exist'})
+    }
+
+    })
 
 
 app.listen(3000, () => console.log('listinig on port 3000'));
