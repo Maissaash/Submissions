@@ -94,7 +94,31 @@ app.get('/movies/delete/:ID',(req,res) => {
         res.send({status:404, error:true, message:'the movie <ID> does not exist'})
     }
 
+})    
+/* update movie */
+app.get('/movies/update/:ID',(req,res) => {
+    var idexist=req.params.ID
+    var newtitle=req.query.title
+    var newyear=req.query.year
+    var newrating=req.query.rating
+
+    if(idexist>0 && idexist<movies.length){
+        if(newtitle!=movies[idexist].title){
+            movies[idexist].title=newtitle;
+        }
+        else if(newyear!=movies[idexist].year){ 
+             movies[idexist].year=newyear;
+        }
+        else if(newrating!=movies[idexist].rating){
+             movies[idexist].rating=newrating;
+        }
+    res.send({status:200, message: movies})
+    }        
+        
+    else{    
+         res.send({error:true, message:'ID not exist'})
+        }
+    
     })
 
-
-app.listen(3000, () => console.log('listinig on port 3000'));
+    app.listen(3000, () => console.log('listinig on port 3000'))
