@@ -1,5 +1,31 @@
-var express = require('express')
+ var express = require('express')
  var app = express()
+ var mongoose = require('mongoose');
+ 
+ var bodyParser = require('body-parser');
+ app.use(bodyParser.json());
+ app.use(bodyParser.urlencoded({ extended: true }));
+
+var url="mongodb+srv://maissaa:<password>@cluster0-hv8hy.mongodb.net/test?retryWrites=true&w=majority";
+
+mongoose.Promise = global.Promise;
+const db =mongoose.connection
+const url = process.env.MONGOLAB_URI;
+mongoose.connect(url,{useMongoClient:true});
+store:new MongoStore({mongooseConnection :db})
+
+app.set('view engine', 'ejs')
+const movieseSchema = new mongoose.Schema({
+    Title: String,
+    Year: Number,
+    Rating: Number
+    });
+const movie=new mongoose.Schema(movies,moviesSchema)
+
+const Article = mongoose.model("Article", moviesSchema);
+
+
+
      app.get('/', (req, res) => { 
          res.send('ok')    
      });
@@ -70,7 +96,7 @@ app.get('/movies/read/id/:ID',(req,res)=>{
 })
 
 /* add new movie */    
- app.get('/movies/add',(req,res) => {
+ app.post('/movies/add',(req,res) => {
       var newtitle = req.query.title 
       var newyear = req.query.year 
       var newrating = req.query.rating
@@ -84,7 +110,7 @@ if (newrating == "") { newrating = 4 }
 })
 
 /* delete movie */
-app.get('/movies/delete/:ID',(req,res) => {
+app.delete('/movies/delete/:ID',(req,res) => {
     var moviesdel = req.params.ID
     if (moviesdel > 0 && moviesdel< movies.length ) {
         movies.splice(moviesdel-1 , 1)
@@ -96,7 +122,7 @@ app.get('/movies/delete/:ID',(req,res) => {
 
 })    
 /* update movie */
-app.get('/movies/update/:ID',(req,res) => {
+app.put('/movies/update/:ID',(req,res) => {
     var idexist=req.params.ID
     var newtitle=req.query.title
     var newyear=req.query.year
